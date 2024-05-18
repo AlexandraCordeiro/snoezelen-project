@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tema</title>
+    <link rel="shortcut icon" type="img/svg" href="content/icons/eyes.svg">
+
+    <meta name="viewport" content="width=device-width">
+    <link href="css/flexbox_grid.css" rel="stylesheet">
+    <link href="css/geral.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+        </nav>
+    </header>
+    <main>
+        <div class="wrap container-fluid">
+            <div class="row" id="zero">
+                <a href="index.html" id=back_div>
+                    <div>
+                        <img id="img" src="content/icons/back.svg">
+                        <p id="back">Back</p>
+                    </div>
+                </a>
+                <div id="tit">
+                    <span id="icone">🐬</span>
+                    <span id="theme">Água</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-m-6 col-t-6 col-d-12">
+                    <h5>Ajuste o volume sonoro de cada segmento</h5>
+                </div>
+            </div> 
+            
+            <div class="row">
+                <div class="col-m-6 col-t-12 col-d-12">
+                <!--<div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="range1">
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="range1">
+                </div>-->
+
+                <div class="container">
+                    <div class="n">
+                        <div class="name">Baleia (1)</div>
+                        <div id="slider-value">0</div>
+                    </div>
+                    <input type="range" id="my-slider" min="0" max="100" value="50" oninput="slider()">
+                </div>
+
+
+
+            </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+    </footer>
+
+    <script src="js/geral.js"></script>
+</body>
+
+</html>
