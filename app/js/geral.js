@@ -1,4 +1,6 @@
-const mySlider = document.getElementById("my-slider");
+
+
+/*const mySlider = document.getElementById("my-slider");
 const sliderValue = document.getElementById("slider-value");
 
 function slider(){
@@ -7,4 +9,4 @@ function slider(){
     mySlider.style.background = `linear-gradient(to right, #0024B5 ${valPercent}%, #DCE3FF ${valPercent}%)`;
 }
 
-slider();
+slider();*/
