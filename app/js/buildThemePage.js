@@ -45,10 +45,7 @@ function displayArtifact(data) {
     back_div.style.backgroundColor = color2;
     back.style.color = text_color;
 
-
-
-
-    if(audios!==null){
+    if(audios && audios.length > 0){
         for (let i = 0; i <  audios.length; i++) {
              //console.log(audios[i])
             let row = document.createElement("div");
@@ -90,10 +87,13 @@ function displayArtifact(data) {
             input.setAttribute("type", "range")
             input.setAttribute("min", "0");
             input.setAttribute("max", "100");
-            input.setAttribute("value", "50");
+            input.setAttribute("value", "0");
             input.setAttribute("data-index", i);
             container.appendChild(input);
 
+            if (i==0){
+                input.setAttribute("value", "50");
+            }
 
             // Função de atualização do slider
         input.addEventListener("input", function() {
@@ -106,8 +106,12 @@ function displayArtifact(data) {
         // Atualizar o slider inicialmente
         input.dispatchEvent(new Event('input'));
         }
-    } else{
-        console.log("não existem áudios a apresentar")
+        Volume_Audio(data);
+    
+
+    } else {
+        let adjust = document.querySelector(".adjust");
+        adjust.innerText = "Ainda não foram carregados áudios. Por favor, contacte o fornecedor do serviço.";
     }
 }
 
