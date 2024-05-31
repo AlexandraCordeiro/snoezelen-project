@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Estatísticas</title>
+    
+
+    <meta name="viewport" content="width=device-width">
+    <link href="css/flexbox_grid.css" rel="stylesheet">
+    <link href="css/geral.css" rel="stylesheet">
+    <link href="css/statistics.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+        </nav>
+    </header>
+    <main>
+        <div class="wrap container-fluid">
+            <div class="row">
+                <div class="col-m-6 col-t-12 col-d-12">
+                    <h2>Estatísticas</h2>
+                </div>
+            </div>
+            <div class="row">
+                <label for="month">Selecione o mês:</label>
+                <select id="month">
+                    <option value="1">Janeiro</option>
+                    <option value="2">Fevereiro</option>
+                    <option value="3">Março</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Maio</option>
+                    <option value="6">Junho</option>
+                    <option value="7">Julho</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
+                <div class="col-m-6 col-t-12 col-d-12">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+
+   
+
+
+    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+    <script src="js/statistics.js"></script>
+    <script src="js/geral.js"></script>
+</body>
+
+</html>
+
+  <script>
+    /*const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });*/
+
+ /*   import Chart from 'chart.js/auto';
+import { getRelativePosition } from 'chart.js/helpers';
+
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: data,
+  options: {
+    onClick: (e) => {
+      const canvasPosition = getRelativePosition(e, chart);
+
+      // Substitute the appropriate scale IDs
+      const dataX = chart.scales.x.getValueForPixel(canvasPosition.x);
+      const dataY = chart.scales.y.getValueForPixel(canvasPosition.y);
+    }
+  }
+});*/
+
+
+// <block:setup:1>
+    //import Chart from 'chart.js/auto';
+    
+  </script>
+   
