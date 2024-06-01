@@ -52,7 +52,6 @@ function displayArtifact(data) {
             row.classList.add("row");
             wrap.appendChild(row);
 
-
             let col_vaz = document.createElement("div");
             col_vaz.classList.add("col-d-2");
             row.appendChild(col_vaz);

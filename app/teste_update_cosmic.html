@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic JS Example</title>
+</head>
+<body>
+    <div id="cosmic"></div>
+    <div id="messages"></div>
+
+    <!--<script src="https://unpkg.com/@cosmicjs/sdk@1.0.11/dist/index.umd.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/mqtt/dist/mqtt.min.js"></script>
+    <script>
+        // Constants
+        const DAYS = 'https://api.cosmicjs.com/v3/buckets/ti-project-production/objects?pretty=true&query=%7B%22type%22:%22numeros%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,';
+
+        // Fetch data from API
+        async function fetchApi(apiUrl) {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`Error loading search results: ${response.status}`);
+                }
+                const data = await response.json();
+                return data.objects;
+            } catch (error) {
+                console.error('Fetching error:', error);
+                throw error;
+            }
+        }
+
+        // Display days data
+        function displayDays(data) {
+            let container = document.querySelector("#cosmic");
+            let counter = data[0].metadata.counter;
+            console.log(counter);
+        }
+
+        // Update Cosmic object
+        async function updateCosmic(objectId, metadata) {
+            const { createBucketClient } = cosmicjs;
+
+            const cosmic = createBucketClient({
+                bucketSlug: 'ti-project-production',
+                readKey: 'gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s',
+                writeKey: 'KnBNxwoQCtYMjdPbcQPvebL7aB9njRIoj4wtJzWcnKhNtorqt8'
+            });
+
+            try {
+                await cosmic.objects.updateOne({
+                    id: objectId,
+                    body: {
+                        metadata: metadata
+                    }
+                });
+                console.log('Object updated successfully!');
+            } catch (error) {
+                console.error('Error updating object:', error);
+            }
+        }
+
+        // Fetch and display data
+        async function fetchAndDisplay() {
+            try {
+                const data = await fetchApi(DAYS);
+                displayDays(data);
+            } catch (error) {
+                console.error('Fetching error:', error);
+            }
+        }
+
+        // MQTT setup
+        const client = mqtt.connect('ws://test.mosquitto.org:8080/mqtt');
+        const topic = 'sensor/toy1';
+        const topic2 = 'sensor/toy2';
+
+        client.on('connect', () => {
+            console.log('Connected to broker');
+            client.subscribe(topic, (err) => {
+                if (!err) {
+                    console.log(`Subscribed to topic: ${topic}`);
+                }
+            });
+            client.subscribe(topic2, (err) => {
+                if (!err) {
+                    console.log(`Subscribed to topic: ${topic2}`);
+                }
+            });
+        });
+
+        client.on('message', async (topic, message) => {
+            const msg = message.toString();
+            console.log(`Received message on ${topic}: ${msg}`);
+
+            const messagesDiv = document.getElementById('messages');
+            const newMessage = document.createElement('div');
+            newMessage.textContent = `Topic: ${topic}, Message: ${msg}`;
+            messagesDiv.appendChild(newMessage);
+
+            // Fetch and display data
+            await fetchAndDisplay();
+
+            // Update Cosmic data
+            const updatedMetadata = {
+                day: 1,
+                counter: 4
+            };
+
+            await updateCosmic(0, updatedMetadata);
+        });
+
+    </script>
+    
+</body>
+</html>
