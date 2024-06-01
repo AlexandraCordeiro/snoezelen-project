@@ -1,14 +1,15 @@
 ////// https://www.cosmicjs.com/docs/api/objects#update-object-metadata COM BASE NISTO
- 
+function updateCosmic(objectId, day, newCounter){
 const bucketSlug = 'ti-project-production'; // replace with your actual bucket slug
-const objectId = '665a1988b6cce150ff0989a2'; // replace with your actual object ID
 const bucketWriteKey = 'KnBNxwoQCtYMjdPbcQPvebL7aB9njRIoj4wtJzWcnKhNtorqt8'; // replace with your actual bucket write key
+
+//const objectId = '665a1988b6cce150ff0989a2'; // replace with your actual object ID
 
 const url = `https://api.cosmicjs.com/v3/buckets/${bucketSlug}/objects/${objectId}`;
 const data = {
     metadata: {
-        day: 5,
-        counter: 11
+        day: day,
+        counter: newCounter
     }
 };
 
@@ -27,7 +28,7 @@ fetch(url, {
 .catch((error) => {
   console.error('Error:', error);
 });
-
+}
 
 //let tags = {}
 let daysData, audioData
@@ -48,17 +49,24 @@ async function fetchApi(apiUrl) {
     }
 }
 
-function displayDays(data) {
-    console.log(data);
+function getCounter(data) {
+    return data[0].metadata.counter;
+}
 
-    let counter = data[0].metadata.counter;
-    console.log(counter);
+function getDay(data) {
+    return data[0].metadata.day;
+}
+
+function getId(data){
+    //console.log(data[0].id);
+    return data[0].id;
 }
 
 const client = mqtt.connect('ws://test.mosquitto.org:8080/mqtt');
 
 const topic = 'sensor/toy1';
 const topic2 = 'sensor/toy2';
+let c, c2, d, id;
 
 client.on('connect', () => {
     console.log('Connected to broker');
@@ -75,6 +83,7 @@ client.on('connect', () => {
     });
 });
 
+
 client.on('message', (topic, message) => {
     const msg = message.toString();
     console.log(`Received message on ${topic}: ${msg}`);
@@ -89,14 +98,17 @@ client.on('message', (topic, message) => {
   (async () => {
     try {
         daysData = await fetchApi(DAYS);
-        displayDays(daysData);
+        c = getCounter(daysData);
+        d = getDay(daysData);
+        id = getId(daysData);
+        //console.log(`c:${c}, d:${d},id:${id},`);
+        updateCosmic(id, d, c+1);
     } catch (error) {
         console.error('Fetching error:', error);
         throw error;
     }
 })();
 
-    //updateCo();
 });
 
 
