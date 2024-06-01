@@ -49,17 +49,20 @@ async function fetchApi(apiUrl) {
     }
 }
 
+//número do objeto
+let n = 0;
+
 function getCounter(data) {
-    return data[0].metadata.counter;
+    return data[n].metadata.counter;
 }
 
 function getDay(data) {
-    return data[0].metadata.day;
+    return data[n].metadata.day;
 }
 
 function getId(data){
     //console.log(data[0].id);
-    return data[0].id;
+    return data[n].id;
 }
 
 const client = mqtt.connect('ws://test.mosquitto.org:8080/mqtt');
@@ -110,6 +113,24 @@ client.on('message', (topic, message) => {
 })();
 
 });
+
+function teste(){
+    (async () => {
+        try {
+            daysData = await fetchApi(DAYS);
+            c = getCounter(daysData);
+            d = getDay(daysData);
+            id = getId(daysData);
+            //console.log(`c:${c}, d:${d},id:${id},`);
+            console.log(c+1);
+            updateCosmic(id, d, c+1);
+        } catch (error) {
+            console.error('Fetching error:', error);
+            throw error;
+        }
+    })();
+}
+document.querySelector(".btn").addEventListener("click", teste);
 
 
  
