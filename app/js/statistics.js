@@ -1,3 +1,7 @@
+// @leonor aqui tou so a dar import do outro
+// ficheiro script.js para não estar a repetir código...
+
+import { fetchApi, DATES} from "./script";
 
 
 function getDaysInMonth(month, year) {
@@ -45,6 +49,33 @@ const config = {
   actions: [],
   config: config,
 };*/
+
+
+// @leonor esta função deve dar-te jeito para depois usares
+// na função que cria o gráfico
+
+// returns an array with the number of clicks per day
+// month: inteiro de 1-12, sem zeros, por exemplo, mês junho = '6' e não '06'
+
+async function getMonthStats(month) {
+  async () => {
+    try {
+      let dates = fetchApi(DATES);
+
+      dates.forEach(date => {
+        // acede ao 2o numero na data AKA mês
+        // @leonor isto ainda nao esta acabado, vou jantar...mas a ideia é por aqui
+        // falta testar...
+        getMonth = date.title.split('-')[1];
+        console.log(getMonth);
+      });
+    } catch (error) {
+      throw error;
+    }
+  }
+}
+
+getMonthStats();
 
 window.onload = function() {
     const ctx = document.getElementById('myChart').getContext('2d');
