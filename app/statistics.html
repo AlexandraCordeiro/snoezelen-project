@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Estatísticas</title>
-    
 
     <meta name="viewport" content="width=device-width">
     <link href="css/flexbox_grid.css" rel="stylesheet">
     <link href="css/geral.css" rel="stylesheet">
     <link href="css/statistics.css" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
             <div class="row">
                 <label for="month">Selecione o mês:</label>
                 <select id="month">
-                    <option value="1">Janeiro</option>
+                    <!--<option value="1">Janeiro</option>
                     <option value="2">Fevereiro</option>
                     <option value="3">Março</option>
                     <option value="4">Abril</option>
@@ -42,7 +42,7 @@
                     <option value="9">Setembro</option>
                     <option value="10">Outubro</option>
                     <option value="11">Novembro</option>
-                    <option value="12">Dezembro</option>
+                    <option value="12">Dezembro</option>-->
                 </select>
                 <div class="col-m-6 col-t-12 col-d-12">
                     <canvas id="myChart"></canvas>
@@ -58,7 +58,7 @@
 
     <script src="node_modules/chart.js/dist/chart.umd.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
-    <script src="js/statistics.js"></script>
+    <script src="js/statistics.js" type="module"></script>
     <script src="js/geral.js"></script>
 </body>
 

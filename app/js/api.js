@@ -6,7 +6,8 @@ let openMenu = false
 const THEMES_URL = 'https://api.cosmicjs.com/v3/buckets/ti-project-production/objects?pretty=true&query=%7B%22type%22:%22themes%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,'
 const AUDIO_URL = 'https://api.cosmicjs.com/v3/buckets/ti-project-production/objects?pretty=true&query=%7B%22type%22:%22audio%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,'
 
-async function fetchApi(apiUrl) {
+import fetchApi from "./components/fetch.js";
+/*async function fetchApi(apiUrl) {
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -18,7 +19,7 @@ async function fetchApi(apiUrl) {
         console.error('Fetching error:', error);
         throw error;
     }
-}
+}*/
 
 
 function displayThemes(data) {

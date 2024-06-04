@@ -1,8 +1,16 @@
 // @leonor aqui tou so a dar import do outro
 // ficheiro script.js para não estar a repetir código...
 
-import { fetchApi, DATES} from "./script";
+//import { fetchApi, DATES} from "./script";
+const DATES = 'https://api.cosmicjs.com/v3/buckets/ti-project-production/objects?pretty=true&query=%7B%22type%22:%22dates%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,'
+let date;
+import fetchApi from "./components/fetch.js";
 
+document.addEventListener ('DOMContentLoaded', function() {
+
+
+
+////______________________________________________________________________________________________________________
 
 function getDaysInMonth(month, year) {
     return new Date(year, month, 0).getDate();
@@ -15,7 +23,6 @@ function generateLabels(month, year) {
     for (let day = 1; day <= daysInMonth; day++) {
         labels.push(day.toString());
     }
-
     return labels;
 }
 
@@ -57,17 +64,19 @@ const config = {
 // returns an array with the number of clicks per day
 // month: inteiro de 1-12, sem zeros, por exemplo, mês junho = '6' e não '06'
 
-async function getMonthStats(month) {
+/*async function getMonthStats() {
   async () => {
     try {
+
       let dates = fetchApi(DATES);
 
       dates.forEach(date => {
+        console.log[dates];
         // acede ao 2o numero na data AKA mês
         // @leonor isto ainda nao esta acabado, vou jantar...mas a ideia é por aqui
         // falta testar...
-        getMonth = date.title.split('-')[1];
-        console.log(getMonth);
+        getMonth = date.metadata.date.split('-');
+        console.log(getMonth[1]);
       });
     } catch (error) {
       throw error;
@@ -75,9 +84,87 @@ async function getMonthStats(month) {
   }
 }
 
-getMonthStats();
+getMonthStats();*/
 
-window.onload = function() {
-    const ctx = document.getElementById('myChart').getContext('2d');
-    new Chart(ctx, config);
-};
+//// @xana não apaguei o teu código, mas estive a continuar isto que tinhas em cima que não sei pq
+//// não me estava a funcionar dentro da async(), mas assim funfa
+//// criei o option dinamicamente (dependendo dos meses que estão no cosmic, provavalmente depois temos de fazer o mesmo com os anos)
+//// falta fazer a função que retorna o counter para cada mês em array
+
+function getMonthStats(data) {
+  let months = new Set();
+  data.forEach(date => {
+        //split função
+        var arr = date.metadata.date.split('-');
+        //console.log('day: ', arr[0]);
+        //console.log('month: ', arr[1]);
+        //console.log('year: ', arr[2]);
+
+        months.add(arr[1]);
+        //console.log(months);
+  });
+
+  return Array.from(months);
+}
+
+// Função para criar opções <input option>
+function createMonthOptions(months) {
+  let monthSelect = document.getElementById('month');
+  let monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+  
+  months.forEach(month => {
+      const option = document.createElement('option');
+      option.value = month;
+      option.innerHTML = monthNames[month-1];
+      monthSelect.appendChild(option);
+  });
+}
+
+//@xana esta função 
+//função que retorne o array de counter de cada dia //dia associado a um mês, associado a um ano
+function getCounter(day, month){
+
+}
+
+
+(async () => {
+      try {
+           date = await fetchApi(DATES);
+          //displayDays(date);
+          //console.log(getMonths(DATES));
+          getMonthStats(date);
+          createMonthOptions(getMonthStats(date));
+      } catch (error) {
+          console.error('Fetching error:', error);
+          throw error;
+      }
+})();
+
+
+
+
+const ctx = document.getElementById('myChart').getContext('2d');
+new Chart(ctx, config);
+});
+
+
+/*
+function getMonths(data) {
+  let months = new Set();
+  data.forEach(date => {
+
+      console.log(date);
+      //for(let i=0; i<date.length; i++){
+      //}
+        console.log(date.metadata.date);
+        //split função
+        var arr1 = date.metadata.date.split('-');
+        console.log('date: ', arr1[0]);
+        //console.log('month: ', arr1[1]);
+        console.log('year: ', arr1[2]);
+
+        const months = new Set();
+        const month = arr1[1];
+        months.add(month);
+  });
+}*/

@@ -2,6 +2,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const themesId = urlParams.get('id');
 const THEMES_URL = `https://api.cosmicjs.com/v3/buckets/ti-project-production/objects/${themesId}?pretty=true&query=%7B%22type%22:%22themes%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,`;
 
+//import fetchApi from "./components/fetch.js";
 
 async function fetchApi(apiUrl) {
     try {

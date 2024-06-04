@@ -6,6 +6,7 @@ const topic = 'sensor/toy1';
 const topic2 = 'sensor/toy2';
 let c, d, id;
 let currDate;
+import fetchApi from "./components/fetch.js";
 
 
 // functions
@@ -37,7 +38,8 @@ function updateDate(objectId, date, newCounter){
     });
 }
 
-async function fetchApi(apiUrl) {
+//@xana fiz o import em cima :))
+/*async function fetchApi(apiUrl) {
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -50,8 +52,7 @@ async function fetchApi(apiUrl) {
         console.error('Fetching error:', error);
         throw error;
     }
-}
-
+}*/
 
 function getCounter(date) {
     console.log(date);
@@ -202,8 +203,8 @@ function main() {
     document.querySelector(".btn").addEventListener("click", teste);
 }
 
-
-export {fetchApi, DATES};
+//export {DATES};
+//export {fetchApi, DATES};
 main();
 
 
