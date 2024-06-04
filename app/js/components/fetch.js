@@ -5,7 +5,9 @@ export default async function fetchApi(apiUrl) {
             throw new Error(`error loading search results: ${response.status}`)
         }
         const data = await response.json()
-        console.log(`fetch: ${data}`);
+        console.log("fecth api component: ");
+        console.log(data);
+        // console.log(`fetch: ${data}`);
         return data.objects;
     } catch (error) {
         console.error('Fetching error:', error);

@@ -72,12 +72,13 @@ function getDaysInMonth(month, year) {
 }
 
 async function dateExists(currDate) {
+    // console.log("***");
     let dates = await fetchApi(DATES);
-    
     let exists = false;
     if (dates) {
         dates.forEach(date => {
-            if (date.metadata.title == currDate) {
+            // console.log(date.title);
+            if (date.title == currDate) {
                 exists = true;
             }
         });
@@ -133,6 +134,16 @@ function teste(){
 
 function main() {
     // connect to MQTT
+
+    // get current date
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1; 
+    const currentYear = currentDate.getFullYear();
+
+    currDate = `${currentDay}-${currentMonth}-${currentYear}`;
+    let exists;
+    
     client.on('connect', () => {
         console.log('Connected to broker');
         client.subscribe(topic, (err) => {
@@ -146,20 +157,13 @@ function main() {
                 console.log(`Subscribed to topic: ${topic2}`);
             }
         });
-    
-        // get current date
-        const currentDate = new Date();
-        const currentDay = currentDate.getDate();
-        const currentMonth = currentDate.getMonth() + 1; 
-        const currentYear = currentDate.getFullYear();
-    
-        currDate = `${currentDay}-${currentMonth}-${currentYear}`;
-        let exists;
-    
+        
         (async () => {
             try {
+                console.log("antes da função");
                 exists = await dateExists(currDate)
-                if (exists) {
+                console.log(exists);
+                if (!exists) {
                     createDate(currDate);
                     console.log("Created new date successfully");
                 }
@@ -167,7 +171,8 @@ function main() {
                 console.error('Date error:', error);
                 throw error;
             }
-        })    
+        })();
+        
     });
     
     // mqtt message listener
@@ -182,8 +187,8 @@ function main() {
 
         (async () => {
             try {
-                // update counter based on current date
                 let datesData = await fetchApi(DATES);
+                
                 datesData.forEach(date => {
                     if (date.title == currDate) {
                         updateDate(getId(date), getDates(date), getCounter(date) + 1);

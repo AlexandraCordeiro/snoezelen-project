@@ -91,17 +91,13 @@ getMonthStats();*/
 //// criei o option dinamicamente (dependendo dos meses que estão no cosmic, provavalmente depois temos de fazer o mesmo com os anos)
 //// falta fazer a função que retorna o counter para cada mês em array
 
-function getMonthStats(data) {
-  let months = new Set();
-  data.forEach(date => {
-        //split função
-        var arr = date.metadata.date.split('-');
-        //console.log('day: ', arr[0]);
-        //console.log('month: ', arr[1]);
-        //console.log('year: ', arr[2]);
 
-        months.add(arr[1]);
-        //console.log(months);
+// @leonor ja atualizei esta função
+function getMonthStats(data, daysInMonth) {
+  let months = Array.apply(null, Array(daysInMonth + 1)).map(Number.prototype.valueOf,0);
+  data.forEach(date => {
+        var arr = date.metadata.date.split('-');
+        months[arr[0]] = date.metadata.counter;
   });
 
   return Array.from(months);
@@ -132,8 +128,22 @@ function getCounter(day, month){
            date = await fetchApi(DATES);
           //displayDays(date);
           //console.log(getMonths(DATES));
-          getMonthStats(date);
-          createMonthOptions(getMonthStats(date));
+          console.log(date);
+          const currentDate = new Date();
+          const currentMonth = currentDate.getMonth() + 1; 
+          const currentYear = currentDate.getFullYear();
+
+          // @leonor counterPerDay retorna um array de tamanho igual ao nº de dias num mês
+          // cada índice do array tem o contador do género...
+          // só tens de aceder aos dias e tens la o contador
+          // tecnicamente existe um indice 0, mas isso nao conta
+          // array[diaX] = counterX
+
+          let daysInMonth = getDaysInMonth(currentMonth, currentYear);
+          let counterPerDay = getMonthStats(date, daysInMonth);
+          console.log(counterPerDay);
+
+          createMonthOptions(getMonthStats(date, daysInMonth));
       } catch (error) {
           console.error('Fetching error:', error);
           throw error;
