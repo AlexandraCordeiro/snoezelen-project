@@ -23,7 +23,15 @@ function displayArtifact(data) {
     console.log(data)
 
     let icon = document.querySelector('#icone');
-    icon.innerText = data.metadata.icone;
+    //icon.innerText = data.metadata.icone;
+
+    let ico = document.createElement('img');
+        ico.src=data.metadata.icone.url;
+        ico.width = 40;
+        ico.height = 40;
+        ico.style.transform = "translateY(15%)";
+        ico.alt = 'emoji ' + data.metadata.alt_img;
+        icon.appendChild(ico);
 
     let name = document.querySelector("#theme");
     name.innerText = data.metadata.name;

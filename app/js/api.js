@@ -1,26 +1,12 @@
-let tags = {}
+//let tags = {}
 let themesData, audioData
-let palettes = {}
-let openMenu = false
+//let palettes = {}
+//let openMenu = false
 
 const THEMES_URL = 'https://api.cosmicjs.com/v3/buckets/ti-project-production/objects?pretty=true&query=%7B%22type%22:%22themes%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,'
 const AUDIO_URL = 'https://api.cosmicjs.com/v3/buckets/ti-project-production/objects?pretty=true&query=%7B%22type%22:%22audio%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,'
 
 import fetchApi from "./components/fetch.js";
-/*async function fetchApi(apiUrl) {
-    try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error(`error loading search results: ${response.status}`)
-        }
-        const data = await response.json()
-        return data.objects;
-    } catch (error) {
-        console.error('Fetching error:', error);
-        throw error;
-    }
-}*/
-
 
 function displayThemes(data) {
     let container = document.querySelector(".btn");
@@ -41,9 +27,16 @@ function displayThemes(data) {
 
         div.appendChild(element);
 
-        let icone = document.createElement('div');
+        //let icone = document.createElement('div');
+        //icone.classList.add("icone");
+        //icone.innerHTML=theme.metadata.icone;
+
+        let icone = document.createElement('img');
+        icone.src=theme.metadata.icone.url;
+        icone.width = 60;
+        icone.height = 60;
+        icone.alt = 'emoji ' + theme.metadata.alt_img;
         icone.classList.add("icone");
-        icone.innerHTML=theme.metadata.icone;
 
         let title = document.createElement('div');
         title.classList.add("title");
