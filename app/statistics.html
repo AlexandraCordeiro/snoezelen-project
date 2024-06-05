@@ -24,16 +24,29 @@
     <main>
         <div class="wrap container-fluid">
             <div class="row">
-                <div class="col-m-6 col-t-12 col-d-12">
-                    <h2>Estatísticas</h2>
+                <div class="col-m-6 col-t-12 col-d-12" id="teste">
+                  <a href="index.html" id=back_div>
+                    <div>
+                        <img id="img" src="content/icons/back.svg">
+                        <p id="back">Back</p>
+                    </div>
+                  </a>
                 </div>
             </div>
             <div class="row">
+              <div class="col-m-6 col-t-12 col-d-12" id="lab">
+                <h2>Estatísticas</h2>
                 <label for="month">Selecione o mês:</label>
-                <select id="month">
-                </select>
-                <div class="col-m-6 col-t-12 col-d-12">
+                <select id="month"> </select>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-d-1">
+                </div>
+                <div class="col-m-6 col-t-12 col-d-10">
                     <canvas id="myChart"></canvas>
+                </div>
+                <div class="col-d-1">
                 </div>
             </div>
         </div>
@@ -47,53 +60,9 @@
     <script src="node_modules/chart.js/dist/chart.umd.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
     <script src="js/statistics.js" type="module"></script>
-    <script src="js/geral.js"></script>
+    <!--<script src="js/geral.js"></script>-->
 </body>
 
 </html>
 
-  <script>
-    /*const ctx = document.getElementById('myChart');
-  
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });*/
-
- /*   import Chart from 'chart.js/auto';
-import { getRelativePosition } from 'chart.js/helpers';
-
-const chart = new Chart(ctx, {
-  type: 'line',
-  data: data,
-  options: {
-    onClick: (e) => {
-      const canvasPosition = getRelativePosition(e, chart);
-
-      // Substitute the appropriate scale IDs
-      const dataX = chart.scales.x.getValueForPixel(canvasPosition.x);
-      const dataY = chart.scales.y.getValueForPixel(canvasPosition.y);
-    }
-  }
-});*/
-
-
-// <block:setup:1>
-    //import Chart from 'chart.js/auto';
-    
-  </script>
    

@@ -1,46 +1,4 @@
-#back_div {
-    flex-direction: row;
-    width: 38px;
-    min-width: 37px;
-    height: 100%;
-    overflow: hidden;
-    transition: width 0.1s linear;
-    white-space: nowrap;
-    border-radius: 40px;
-    margin-bottom: 2%;
-    /*background-color: #DCE3FF;*/
-    padding:4px;
-}
 
-#zero{
-    margin-bottom:100px;
-}
-
-#back_div:hover {
-    border-radius: 40px;
-    width: 90px;
-    cursor: pointer;
-}
-
-#back_div>div {
-    display: block;
-    padding: 4px 6px;
-}
-
-#img {
-    display: inline-block;
-    width: 20px;
-    height: auto;
-}
-
-#back {
-    display: inline-block;
-    margin: 0;
-    font-size: 1.125rem;
-    /*color: #001050;*/
-    margin-left: 2px;
-    font-weight: 500;
-}
 
 
 /*.slider {

@@ -1,0 +1,15 @@
+#lab{
+    margin-bottom:38px;
+}
+
+#back_div{
+    display:inline-block;
+    background-color: #DCE3FF;
+    height:auto;
+}
+
+h2{
+    display:inline-block;
+    margin-bottom:0;
+    margin-right:10px;
+}

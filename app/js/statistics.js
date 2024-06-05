@@ -1,7 +1,6 @@
-// @leonor aqui tou so a dar import do outro
-// ficheiro script.js para não estar a repetir código...
 
-//import { fetchApi, DATES} from "./script";
+///// SE DER TER PENSAR COMO FAZER O UPDATE DO GRÁFICO SEM CRIAR UMA FUNÇÃO 
+/////ver aqui https://www.chartjs.org/docs/latest/charts/line.html
 const DATES = 'https://api.cosmicjs.com/v3/buckets/ti-project-production/objects?pretty=true&query=%7B%22type%22:%22dates%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,'
 let date;
 import fetchApi from "./components/fetch.js";
