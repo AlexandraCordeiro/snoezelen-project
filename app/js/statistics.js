@@ -8,8 +8,6 @@ import fetchApi from "./components/fetch.js";
 
 document.addEventListener ('DOMContentLoaded', function() {
 
-
-
 ////______________________________________________________________________________________________________________
 
 function getDaysInMonth(month, year) {
@@ -97,11 +95,30 @@ function getMonthStats(data, daysInMonth) {
   let months = Array.apply(null, Array(daysInMonth + 1)).map(Number.prototype.valueOf,0);
   data.forEach(date => {
         var arr = date.metadata.date.split('-');
+        console.log(arr[0])
         months[arr[0]] = date.metadata.counter;
   });
 
   return Array.from(months);
 }
+
+
+
+function getMonth(data){
+    let month = new Set();
+    data.forEach(date => {
+          //split função
+          var arr = date.metadata.date.split('-');
+          //console.log('day: ', arr[0]);
+          //console.log('month: ', arr[1]);
+          //console.log('year: ', arr[2]);
+  
+          month.add(arr[1]);
+          //console.log(months);
+    });
+    return Array.from(month);
+}
+
 
 // Função para criar opções <input option>
 function createMonthOptions(months) {
@@ -125,10 +142,13 @@ function getCounter(day, month){
 
 (async () => {
       try {
-           date = await fetchApi(DATES);
-          //displayDays(date);
-          //console.log(getMonths(DATES));
+          date = await fetchApi(DATES);
           console.log(date);
+          //cria dinamicamente o filtro
+          let monthsOption = getMonth(date);
+          createMonthOptions(monthsOption);
+          console.log(monthsOption);
+
           const currentDate = new Date();
           const currentMonth = currentDate.getMonth() + 1; 
           const currentYear = currentDate.getFullYear();
@@ -139,11 +159,13 @@ function getCounter(day, month){
           // tecnicamente existe um indice 0, mas isso nao conta
           // array[diaX] = counterX
 
-          let daysInMonth = getDaysInMonth(currentMonth, currentYear);
+          //let daysInMonth = getDaysInMonth(currentMonth, currentYear);
+          let daysInMonth = getDaysInMonth(8, currentYear);
+          console.log(daysInMonth);
           let counterPerDay = getMonthStats(date, daysInMonth);
           console.log(counterPerDay);
+    
 
-          createMonthOptions(getMonthStats(date, daysInMonth));
       } catch (error) {
           console.error('Fetching error:', error);
           throw error;
