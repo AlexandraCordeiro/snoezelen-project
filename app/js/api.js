@@ -37,7 +37,7 @@ function displayThemes(data) {
         let element = document.createElement('a');
         element.classList.add("box-row");
         element.classList.add("choose");
-        element.href=`theme.html?id=${theme.id}`
+        element.href=`./app/theme.html?id=${theme.id}`
 
         div.appendChild(element);
 
