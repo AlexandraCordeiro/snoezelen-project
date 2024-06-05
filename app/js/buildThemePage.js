@@ -80,11 +80,19 @@ function displayArtifact(data) {
             n.classList.add("n");
             container.appendChild(n);
 
-            let name = document.createElement("div");
+            /*let name = document.createElement("div");
             name.classList.add("name");
             name.innerText = data.metadata.audio[i].metadata.audio + " (" + (i+1) + ")";
             name.style.color = text_color;
-            n.appendChild(name);
+            n.appendChild(name);*/
+
+            let label = document.createElement("label");
+            label.setAttribute("for", "my-slider" + i + "")
+            let name=data.metadata.audio[i].metadata.audio + " (" + (i+1) + ")";
+            label.innerText =name;
+            label.classList.add("name");
+            label.style.color = text_color;
+            container.appendChild(label);
 
             let slider_value = document.createElement("div");
             slider_value.classList.add("slider-value" + i + "")
@@ -99,6 +107,7 @@ function displayArtifact(data) {
             input.setAttribute("value", "0");
             input.setAttribute("data-index", i);
             container.appendChild(input);
+
 
             if (i==0){
                 input.setAttribute("value", "50");
