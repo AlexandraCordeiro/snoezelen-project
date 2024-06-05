@@ -121,6 +121,7 @@ function teste(){
             
             datesData.forEach(date => {
                 if (date.title == currDate) {
+                    client.publish('sensor/toy2', '1');
                     updateDate(getId(date), getDates(date), getCounter(date) + 1);
                 }
             });

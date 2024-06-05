@@ -11,6 +11,64 @@
 
 h2{
     display:inline-block;
-    margin-bottom:0;
+    margin-bottom:10px;
+    margin-right:30px;
+}
+
+label{
+    font-weight: 400;
+}
+
+/*input[type="option"]:selected::-webkit-slider-thumb{
+background-color: red;
+}*/
+
+#char{
+    background-color:#FFFFFF;
+    padding:24px 20px;
+    box-shadow: 0px 0px 3.566px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    position:relative;
+}
+
+#lbl{
+    display: inline-block;
+    background-color: #FEF6E5;
+    padding:6px 20px;
+    box-shadow: 0px 0px 3.566px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    align-self: right;
+}
+
+#month{
+    margin-left:5px;
+    border: none;
+    padding:6px 2px;
+    font-family: Montserrat;
+    cursor:pointer;
+    font-weight: 600;
+    background-color: #FEF6E5;
+}
+
+.pressoes{
+    font-weight:500; 
+    display:inline-block;
     margin-right:10px;
+    font-size:18px;
+}
+
+.text{
+    font-size: 10pt;
+    margin-top:20px;
+    margin-left:40px;
+}
+
+#teste{
+    margin-bottom: 40px;
 }

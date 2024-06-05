@@ -24,27 +24,37 @@
     <main>
         <div class="wrap container-fluid">
             <div class="row">
-                <div class="col-m-6 col-t-12 col-d-12" id="teste">
-                  <a href="index.html" id=back_div>
-                    <div>
-                        <img id="img" src="content/icons/back.svg">
-                        <p id="back">Back</p>
-                    </div>
-                  </a>
+              <div class="col-m-1 col-t-1 col-d-1">
+                <a href="index.html" id=back_div>
+                  <div>
+                      <img id="img" src="content/icons/back.svg">
+                      <p id="back">Back</p>
+                  </div>
+                </a>
+              </div>
+                <div class="col-m-4 col-t-12 col-d-10" id="teste" style="text-align: center;">
+                  <h2 style="width:100%;">Estatísticas</h2>
                 </div>
+                <div class="col-m-1 col-t-1 col-d-1"></div>
             </div>
-            <div class="row">
+            <!--<div class="row">
               <div class="col-m-6 col-t-12 col-d-12" id="lab">
                 <h2>Estatísticas</h2>
-                <label for="month">Selecione o mês:</label>
-                <select id="month"> </select>
               </div>
-            </div>
+            </div>-->
             <div class="row">
                 <div class="col-d-1">
                 </div>
-                <div class="col-m-6 col-t-12 col-d-10">
+                <div class="col-m-6 col-t-12 col-d-10" id="char">
+                  <div style="margin-bottom:32px;">
+                    <div class="pressoes">Pressões</div>
+                    <div id="lbl">
+                      <label for="month">Mês</label>
+                      <select id="month"></select>
+                    </div>
+                  </div>
                     <canvas id="myChart"></canvas>
+                    <div class="text">O nº de pressões diz respeito ao nº de vezes que a criança clicou no peluche em cada dia</div>
                 </div>
                 <div class="col-d-1">
                 </div>

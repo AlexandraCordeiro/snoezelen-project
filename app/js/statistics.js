@@ -7,9 +7,9 @@ import fetchApi from "./components/fetch.js";
 let monthSelect = document.getElementById('month');
 let crDate = new Date();
 let crMonth = crDate.getMonth() + 1; // +1, os meses em JavaScript vão de 0 a 11
-
+let ctx;
 document.addEventListener ('DOMContentLoaded', function() {
-    
+
 //////// CRIAR O INPUT DO TIPO OPTION__________________________________________________________________________________________________________
 //Retorna um array com os meses que existem na api
 function getMonth(data){
@@ -31,7 +31,7 @@ function createMonthOptions(months) {
         const option = document.createElement('option');
         option.value = month;
         //console.log(option.value);
-        option.innerHTML = monthNames[month-1];
+        option.innerHTML = monthNames[month-1] + "  2024";
         if (month === "" + crMonth + "") { //começa pelo mês atual 
             option.setAttribute("selected", "selected");
         }
@@ -83,7 +83,6 @@ function update(data, mes) {
     return months;
 }
 
-
 function generateLabels(month, year) {
   const daysInMonth = getDaysInMonth(month, year);
   const labels = [];
@@ -112,7 +111,7 @@ function graphic(date,labels,dt){
       //data: [1, 3, 2, 10, 15, 20, 10, 8, 10, 2, 3, 0, 3, null, 0, 0],
       data: dt,
       fill: false,
-      borderColor: 'rgb(75, 192, 192)',
+      borderColor: '#F9A400',
       tension: 0.1
     }]
     };
@@ -120,10 +119,23 @@ function graphic(date,labels,dt){
     const config = {
     type: 'line',
     data: data,
+    scales: {
+        y: {
+            stacked: true
+        }
+    }
     };
     
-    const ctx = document.getElementById('myChart').getContext('2d');
+    ctx = document.getElementById('myChart').getContext('2d');
+    const w = window.innerWidth;
+    if(w<500){
+        ctx.canvas.height = 400; 
+    }else if(w>500 && w<650){
+        ctx.canvas.height = 300; 
+    }
+    // Definir a altura do canvas caso seja em mobile
     myChart = new Chart(ctx, config);
+
 }
 
 let crDate2 = new Date();
