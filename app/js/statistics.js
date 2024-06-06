@@ -111,7 +111,7 @@ function graphic(date,labels,dt){
       //data: [1, 3, 2, 10, 15, 20, 10, 8, 10, 2, 3, 0, 3, null, 0, 0],
       data: dt,
       fill: false,
-      borderColor: '#F9A400',
+      borderColor: '#E76F00',
       tension: 0.1
     }]
     };

@@ -1,3 +1,7 @@
+html{
+    background-color: #fffcfa;
+}
+
 #lab{
     margin-bottom:38px;
     margin-top:10px;
@@ -5,14 +9,15 @@
 
 #back_div{
     display:inline-block;
-    background-color: #DCE3FF;
+    background-color: #ffeecf;
     height:auto;
 }
 
-h2{
+h1{
     display:inline-block;
     margin-bottom:10px;
     margin-right:30px;
+    font-weight: 500;
 }
 
 label{

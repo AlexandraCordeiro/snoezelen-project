@@ -86,10 +86,13 @@ h5{
     margin-bottom:100px;
 }
 
+
+@media screen and (min-width: 600px) {
 #back_div:hover {
     border-radius: 40px;
-    width: 100px;
+    width: 105px;
     cursor: pointer;
+}
 }
 
 #back_div>div {
@@ -101,6 +104,7 @@ h5{
     display: inline-block;
     width: 20px;
     height: auto;
+    margin-right: 2px;
 }
 
 #back {
