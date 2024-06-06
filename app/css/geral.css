@@ -87,7 +87,7 @@ h5{
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
 #back_div:hover {
     border-radius: 40px;
     width: 105px;
