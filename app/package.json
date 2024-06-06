@@ -1,19 +1,6 @@
 {
-  "name": "chartjs-example",
-  "version": "1.0.0",
-  "license": "MIT",
-  "scripts": {
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
-  },
-  "devDependencies": {
-    "parcel": "^2.6.2"
-  },
   "dependencies": {
-    "@cosmicjs/sdk": "^1.0.11",
-    "@cubejs-client/core": "^0.31.0",
-    "chart.js": "^4.0.0",
-    "cosmicjs": "^4.3.7",
-    "mqtt": "^5.7.0"
+    "chart.js": "^4.4.3",
+    "chartjs": "^0.3.24"
   }
 }
