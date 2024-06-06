@@ -1,4 +1,4 @@
-# Snoezelen Toy: designed for children with special needs
+# 🧸 Snoezelen Toy: designed for children with special needs
 
 <center>
     <img src="imgs/demo.png" width=500>
