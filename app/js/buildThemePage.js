@@ -22,6 +22,9 @@ async function fetchApi(apiUrl) {
 function displayArtifact(data) {
     console.log(data)
 
+    let link = document.querySelector("#lk");
+    link.setAttribute("href", data.metadata.icone.url);
+    
     let icon = document.querySelector('#icone');
     //icon.innerText = data.metadata.icone;
 

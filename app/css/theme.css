@@ -50,6 +50,10 @@
     border-radius: 5px;
 }*/
 
+.adjust{
+    color:black;
+}
+
 input[type="range"]{
     position: relative;
     -webkit-appearance: none;
@@ -151,8 +155,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 
 #theme{
-    margin-top:20px;
+    margin-top:25px;
+    font-size:18px;
     display:block;
+    color:black;
 }
 
 .container{

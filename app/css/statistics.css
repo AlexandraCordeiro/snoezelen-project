@@ -66,12 +66,14 @@ background-color: red;
     display:inline-block;
     margin-right:10px;
     font-size:18px;
+    color:black;
 }
 
 .text{
     font-size: 10pt;
     margin-top:20px;
     margin-left:40px;
+    color:black;
 }
 
 #teste{

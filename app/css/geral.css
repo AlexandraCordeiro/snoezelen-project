@@ -46,6 +46,7 @@ h1{
     font-size: 26px;
     margin-bottom:74px;
     z-index:5;
+    color:black;
 }
 
 h1 b{
@@ -58,6 +59,7 @@ p{
     font-weight: 400;
     margin-bottom:22px;
     line-height: 22px;
+    color:black;
 }
 
 .btn{
