@@ -1,5 +1,7 @@
 # 🧸 Snoezelen Toy: designed for children with special needs
 
+[link to web app](https://alexandracordeiro.github.io/snoezelen-project/)
+
 <center>
     <img src="imgs/demo.png" width=500>
 </center>
