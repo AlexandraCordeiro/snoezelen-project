@@ -1,0 +1,53 @@
+<!--TI, Snoezelen Project-->
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tema</title>
+    
+    <link rel="shortcut icon" type="img/png" href="content/icons/sun.png" id="lk">
+
+    <meta name="viewport" content="width=device-width">
+    <link href="css/flexbox_grid.css" rel="stylesheet">
+    <link href="css/geral.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <main>
+        <div class="wrap container-fluid">
+            <div class="row" id="zero">
+                <a href="../index.html" id=back_div>
+                    <div>
+                        <img id="img" src="content/icons/back.svg" alt="icone Voltar Atrás">
+                        <p id="back">Voltar</p>
+                    </div>
+                </a>
+                <div id="tit">
+                    <span id="icone"></span>
+                    <span id="theme"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-d-2"></div>
+                <div class="col-m-6 col-t-12 col-d-8">
+                    <p class="adjust">Ajuste o volume sonoro de cada segmento</p>
+                </div>
+            </div> 
+        </div>
+    </main>
+    
+    <footer>
+    </footer>
+    <script src="js/buildThemePage.js" type="module"></script>
+    <script src="js/components/audio_volume.js"></script>
+</body>
+
+</html>

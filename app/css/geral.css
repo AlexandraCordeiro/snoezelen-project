@@ -1,0 +1,136 @@
+/*TI, Snoezelen Project
+Página de CSS Geral e index.html*/
+
+*{
+    --back: #FAFBFF;
+    --blue: #0024B5;
+    --blue5: #DCE3FF;
+    font-family: "Montserrat", sans-serif;
+}
+
+html{
+    background-color: var(--back);
+}
+
+.chos{
+    text-align: center;
+}
+
+.choose{
+    display:inline-block;
+    background-color:#FFFFFF;
+    padding:20% 30%;
+    border-radius: 9.211px;
+    box-shadow: 0px 0px 6.14px 0px rgba(0, 0, 0, 0.08);
+}
+
+.choose:hover{
+    background-color:#DCE3FF;
+}
+
+.icone{
+    font-size: 4rem;
+}
+
+a {
+    text-decoration:none;
+    color:black; 
+}
+
+.wrap{
+    margin-top:48px;
+    margin-bottom:48px;
+}
+
+h1{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    margin-bottom:74px;
+    z-index:5;
+    color:black;
+}
+
+h1 b{
+    font-weight: 600;
+}
+
+p{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom:22px;
+    line-height: 22px;
+    color:black;
+}
+
+.btn{
+    margin-top:20px;
+}
+
+.title{
+    margin-bottom:8px;
+}
+
+#back_div {
+    flex-direction: row;
+    width: 38px;
+    min-width: 37px;
+    height: 100%;
+    overflow: hidden;
+    transition: width 0.1s linear;
+    white-space: nowrap;
+    border-radius: 40px;
+    margin-bottom: 2%;
+    padding:4px;
+}
+
+#zero{
+    margin-bottom:100px;
+}
+
+
+@media screen and (min-width: 500px) {
+#back_div:hover {
+    border-radius: 40px;
+    width: 105px;
+    cursor: pointer;
+}
+}
+
+#back_div>div {
+    display: block;
+    padding: 4px 6px;
+}
+
+#img {
+    display: inline-block;
+    width: 20px;
+    height: auto;
+    margin-right: 2px;
+}
+
+#back {
+    display: inline-block;
+    margin: 0;
+    font-size: 1.125rem;
+    /*color: #001050;*/
+    margin-left: 2px;
+    font-weight: 500;
+}
+
+#btnToEstatistica{
+    background-color: #394E98;
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.20);
+
+    color: var(--cor6, #F0FBF3);
+    margin-top:50px;
+    border-radius: 8px;
+}

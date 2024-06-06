@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Estatísticas</title>
+
+    <link rel="shortcut icon" type="img/png" href="content/icons/sun.png">
+
+    <meta name="viewport" content="width=device-width">
+    <link href="css/flexbox_grid.css" rel="stylesheet">
+    <link href="css/geral.css" rel="stylesheet">
+    <link href="css/statistics.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <main>
+        <div class="wrap container-fluid">
+            <div class="row">
+              <div class="col-m-1 col-t-1 col-d-1">
+                <a href="../index.html" id=back_div>
+                  <div>
+                      <img id="img" src="content/icons/back.svg" alt="icone Voltar Atrás">
+                      <p id="back">Voltar</p>
+                  </div>
+                </a>
+              </div>
+                <div class="col-m-4 col-t-12 col-d-10" id="teste" style="text-align: center;">
+                  <h1 style="width:100%;">Estatísticas</h1>
+                </div>
+                <div class="col-m-1 col-t-1 col-d-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-d-1">
+                </div>
+                <div class="col-m-6 col-t-12 col-d-10" id="char">
+                  <div style="margin-bottom:32px;">
+                    <div class="pressoes">Pressões</div>
+                    <div id="lbl">
+                      <label for="month">Mês</label>
+                      <select id="month"></select>
+                    </div>
+                  </div>
+                    <canvas id="myChart"></canvas>
+                    <p class="text">O nº de pressões diz respeito ao nº de vezes que a criança clicou no peluche em cada dia</p>
+                </div>
+                <div class="col-d-1">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+
+    <script src="node_modules/chart.js/dist/chart.umd.js"></script>
+    <script src="js/statistics.js" type="module"></script>
+</body>
+
+</html>
+
+   
