@@ -1,6 +1,7 @@
+//TI, Snoezelen Project
+//Para descartar apresentar gráficos
 
-///// SE DER TER PENSAR COMO FAZER O UPDATE DO GRÁFICO SEM CRIAR UMA FUNÇÃO 
-/////ver aqui https://www.chartjs.org/docs/latest/charts/line.html
+/////Gráfico de referência https://www.chartjs.org/docs/latest/charts/line.html
 const DATES = 'https://api.cosmicjs.com/v3/buckets/ti-project-production/objects?pretty=true&query=%7B%22type%22:%22dates%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,'
 let date;
 import fetchApi from "./components/fetch.js";
@@ -65,6 +66,7 @@ function update(data, mes) {
     let daysInMonth2 = getDaysInMonth( '' + mes + '', currentYear);
     let dia;
 
+    //cria um array com o número de dias que existe num determinado mês +1, com valores definidos a 0
     months = Array.apply(null, Array(daysInMonth2+1)).map(Number.prototype.valueOf,0);
 
     data.forEach(month => {
@@ -147,13 +149,11 @@ let crMonth2 = crDate2.getMonth() + 1; // +1, os meses em JavaScript vão de 0 a
           let labelsi = generateLabels('' + crMonth + '', currentYear);
           let dti = update(date,'' + crMonth + '');
            graphic(date, labelsi, dti);
-          
-
-          /////CRIAR O INPUT DO TIPO OPTION______________________________
+        
+          /////cria o input do tipo option_____________________________
           let monthsOption = getMonth(date);
           createMonthOptions(monthsOption);
           
-
           /////Quando se altera os valores do select______________________________
           monthSelect.addEventListener("change", function(){
             mes = changeMonth();

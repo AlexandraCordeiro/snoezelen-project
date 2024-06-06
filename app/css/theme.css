@@ -1,59 +1,11 @@
-
-
-
-/*.slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 15px;
-    border-radius: 16px;  
-    background: #DCE3FF;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-    margin-bottom: 66px;
-    /*overflow: hidden;
-  }*/
-  
-  /*.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    cursor: pointer;
-    background: var(--blue);
-    /*background: linear-gradient(to left, blue, blue);*/
-    /*box-shadow: -407px 0 0 400px #0024B5;
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    
-    cursor: pointer;
-  }*/
-
-  
-
-
-
-
-/*.container{
-    //background-color: #ffffff;
-    transform: translateX(-50%);
-    width:100%;
-    left: 50%;
-    position: absolute;
-    padding:30px 20px 10px 20px;
-    border-radius: 5px;
-}*/
+/*TI, Snoezelen Project
+Estilos relativos à página de tema */
 
 .adjust{
     color:black;
 }
 
+/*sliders para alterar som*/
 input[type="range"]{
     position: relative;
     -webkit-appearance: none;
@@ -125,7 +77,6 @@ input[type="range"]:active::-webkit-slider-thumb{
     position: absolute;
     right:0;
     display:inline-block;
-    /*background-color: var(--blue);*/
     color: #000000;
     padding: 10px 0;
     border-radius: 5px;

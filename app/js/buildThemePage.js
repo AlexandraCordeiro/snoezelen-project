@@ -1,9 +1,10 @@
+//TI, Snoezelen Project
+//Página de js, relativa à construção das páginas de tema
+
 const urlParams = new URLSearchParams(window.location.search);
 const themesId = urlParams.get('id');
 console.log(themesId);
 const THEMES_URL = `https://api.cosmicjs.com/v3/buckets/ti-project-production/objects/${themesId}?pretty=true&query=%7B%22type%22:%22themes%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,`;
-
-//import fetchApi from "./components/fetch.js";
 
 async function fetchApi(apiUrl) {
     try {
@@ -19,14 +20,14 @@ async function fetchApi(apiUrl) {
     }
 }
 
-function displayArtifact(data) {
+//função que faz o display da informação relativa a cada tema
+function displayTheme(data) {
     console.log(data)
 
     let link = document.querySelector("#lk");
     link.setAttribute("href", data.metadata.icone.url);
     
     let icon = document.querySelector('#icone');
-    //icon.innerText = data.metadata.icone;
 
     let ico = document.createElement('img');
         ico.src=data.metadata.icone.url;
@@ -58,9 +59,9 @@ function displayArtifact(data) {
     back_div.style.backgroundColor = color2;
     back.style.color = text_color;
 
+    //ve se os audio existem e se o nr do array é maior que 0
     if(audios && audios.length > 0){
         for (let i = 0; i <  audios.length; i++) {
-             //console.log(audios[i])
             let row = document.createElement("div");
             row.classList.add("row");
             wrap.appendChild(row);
@@ -83,15 +84,10 @@ function displayArtifact(data) {
             n.classList.add("n");
             container.appendChild(n);
 
-            /*let name = document.createElement("div");
-            name.classList.add("name");
-            name.innerText = data.metadata.audio[i].metadata.audio + " (" + (i+1) + ")";
-            name.style.color = text_color;
-            n.appendChild(name);*/
-
             let label = document.createElement("label");
             label.setAttribute("for", "my-slider" + i + "")
-            let name=data.metadata.audio[i].metadata.audio + " (" + (i+1) + ")";
+            //let name=data.metadata.audio[i].metadata.audio + " (" + (i+1) + ")";
+            let name=data.metadata.audio[i].metadata.audio;
             label.innerText =name;
             label.classList.add("name");
             label.style.color = text_color;
@@ -139,7 +135,7 @@ function displayArtifact(data) {
 (async () => {
     try {
         const themeData = await fetchApi(THEMES_URL);
-        displayArtifact(themeData);
+        displayTheme(themeData);
     } catch (error) {
         console.error('Fetching error:', error);
         throw error;

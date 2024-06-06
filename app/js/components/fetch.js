@@ -1,3 +1,6 @@
+//TI, Snoezelen Project
+//Página de js, componente de fetch
+
 export default async function fetchApi(apiUrl) {
     try {
         const response = await fetch(apiUrl);
@@ -7,7 +10,6 @@ export default async function fetchApi(apiUrl) {
         const data = await response.json()
         console.log("fecth api component: ");
         console.log(data);
-        // console.log(`fetch: ${data}`);
         return data.objects;
     } catch (error) {
         console.error('Fetching error:', error);

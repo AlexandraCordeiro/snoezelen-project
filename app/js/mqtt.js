@@ -1,3 +1,6 @@
+//TI, Snoezelen Project
+//Para descartar eventuais erros entre conexão entre o peluche e a base de dados - cosmic, e fazer a comunicação mqtt website
+
 const DATES = 'https://api.cosmicjs.com/v3/buckets/ti-project-production/objects?pretty=true&query=%7B%22type%22:%22dates%22%7D&limit=10&read_key=gTRqDyjPMRAkcbCzQ0lkN6QowrCuKEnikL45ugW1p1hSee3a2s&depth=1&props=slug,title,metadata,id,'
 const bucketSlug = 'ti-project-production';
 const bucketWriteKey = 'KnBNxwoQCtYMjdPbcQPvebL7aB9njRIoj4wtJzWcnKhNtorqt8';
@@ -8,8 +11,7 @@ let c, d, id;
 let currDate;
 import fetchApi from "./components/fetch.js";
 
-
-// functions
+//funções
 function updateDate(objectId, date, newCounter){
 
     const url = `https://api.cosmicjs.com/v3/buckets/${bucketSlug}/objects/${objectId}`;
@@ -37,22 +39,6 @@ function updateDate(objectId, date, newCounter){
     console.error('Error:', error);
     });
 }
-
-//@xana fiz o import em cima :))
-/*async function fetchApi(apiUrl) {
-    try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error(`error loading search results: ${response.status}`)
-        }
-        const data = await response.json()
-        console.log(`fetch: ${data}`);
-        return data.objects;
-    } catch (error) {
-        console.error('Fetching error:', error);
-        throw error;
-    }
-}*/
 
 function getCounter(date) {
     console.log(date);
@@ -134,9 +120,7 @@ function teste(){
 }
 
 function main() {
-    // connect to MQTT
-
-    // get current date
+    //obter a data atual
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1; 
@@ -145,6 +129,7 @@ function main() {
     currDate = `${currentDay}-${currentMonth}-${currentYear}`;
     let exists;
     
+    // conexão com o mqtt
     client.on('connect', () => {
         console.log('Connected to broker');
         client.subscribe(topic, (err) => {
@@ -176,7 +161,7 @@ function main() {
         
     });
     
-    // mqtt message listener
+    // mqtt fica à escuta de uma mensagem
     client.on('message', (topic, message) => {
         const msg = message.toString();
         console.log(`Received message on ${topic}: ${msg}`);
@@ -191,7 +176,7 @@ function main() {
                 let datesData = await fetchApi(DATES);
                 
                 datesData.forEach(date => {
-                    if (date.title == currDate) {
+                    if (date.title == currDate) { //faz update do cosmic com os valores do dia, etc
                         updateDate(getId(date), getDates(date), getCounter(date) + 1);
                     }
                 });
@@ -205,12 +190,10 @@ function main() {
     });
 
 
-    // test
+    //para teste
     document.querySelector(".btn").addEventListener("click", teste);
 }
 
-//export {DATES};
-//export {fetchApi, DATES};
 main();
 
 
